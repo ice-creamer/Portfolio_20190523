@@ -1,0 +1,73 @@
+/* タブレット向けレイアウト 1,000px 以下 W3C 公式文書によると all and の記述は必要ない */
+/* メディアタイプをすべての機器に設定(all) */
+@media (max-width: 1000px) {
+  /* ヘッダーラインの高さを設定する（デバイスの解像度に応じて可変） */
+  header {
+    height: var(--tablet-header-line-height);
+  }
+  /* 普通メニューの高さ */
+  header a {
+    font: size var(--tablet-header-line-height);
+  }
+  /*  */
+  .web-title {
+    font: size var(--tablet-header-line-height * 3);
+    color:green;
+  }
+  /*  */
+  .wellcome-message {
+    font: size var(--tablet-header-line-height);
+    color:white;
+  }
+
+  /* 和暦の1ブロックの幅を50%に設定する */
+  .egg {
+    float:left;/* */
+    width:50%;
+    position: relative;
+  }
+  /* ハンバーガーメニューアイコンを表示しない */
+  .menu-icon {
+    display: none;
+  }
+}
+  
+/* モバイル端末向けレイアウト 670px 以下 W3C 公式文書によると all and の記述は必要ない */
+@media (max-width: 670px) {
+  /* ヘッダーラインの高さを設定する */
+  header {
+    height: var(--mobile-header-line-height);
+  }
+  /* 標準メニューを非表示 */
+  .header-right {
+    display: none;
+  }
+  /* モバイル端末の場合、ハンバーガーメニューアイコンを表示する */
+  .header-line .menu-icon {
+    display: block;
+    margin: 0 1em 0 auto;
+  }
+  /* モバイル端末の場合の WEB ページの見出しタイトルのフォントサイズとカラーを設定する */
+  .web-title {
+    font: size var(--mobile-header-line-height * 3);
+    color:blue;
+  }
+  .wellcome-message {
+    font: size var(--mobile-header-line-height);
+    color:aquamarine;
+  }
+  /* モバイル端末の場合、Twitterのフォローボタンの幅を画面サイズ一杯に設定する */
+  .btn {
+    width: 100%;
+  }
+  /* テキストを中央揃えにする */
+  .top-wrapper {
+    text-align: center;
+  }
+  /* 玉子の1ブロックの幅が100% */
+  .egg {  
+    float:left;
+    width:100%;
+    position: relative;
+  }
+}

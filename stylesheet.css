@@ -1,0 +1,232 @@
+/* CSS で使用する変数の定義 */
+:root {
+  /* 玉子画像の幅 */
+  --egg-icon-width: 200px;
+  /* 玉子画像の高さ */
+  --egg-icon-height: 200px;
+  /* ヘッダーラインの高さ */
+  --pc-header-line-height: 48px;
+  --tablet-header-line-height: 48px;
+  --mobile-header-line-height: 48px;
+
+  /* twitterボタンの背景色は黄緑 */
+  --twitter-background-color: #5dca88;
+  --twitter-box-shadow-color: #1a7940;
+  /* 文字色は白 */
+  --twitter-strings-color:white;
+  --twitter-opacity: 0.9;
+  /* 角を半径4pxに丸める */
+  --twitter-border-radius: 4px;
+  /* ボタンの影の長さ */
+  --twitter-box-shadow: 7px;
+
+  /* フッターの高さを設定する */
+  --footer-height: 36px;
+  --copyright-height: 36px;
+}
+/* レイアウト崩れを防ぐためのおまじない */
+/* HTML 全体に box-sizing: border-box を適用する */
+* {
+  box-sizing: border-box;
+}
+/* html,bodyタグの設定 */
+html, body{
+  margin: 0;      /* 余白の削除 */
+  border: 0;      /* 余白の削除 */
+  padding: 0;     /* 余白の削除 */
+
+  width: 100%;    /* 表示領域の確保 */
+  height: 100%;   /* 表示領域の確保 */
+}
+/*  */
+body {
+  font-family: "Hiragino Kaku Gothic ProN";
+
+  background-image:url("./images/hubble-captures-vivid-auroras-in-jupiters-atmosphere_28000029525_o_medium.jpg");
+  /* 背景画像を拡大して画面一杯に広げるように設定する */
+  background-size: cover;
+  /* 背景の透過率の設定 */
+  opacity: 0.9;
+}
+/* フッター部を固定に設定しているが、どうしてもコンテンツの下部とフッター部が被る */
+body .container {
+  position: relative;                   /* 相対位置 */
+  min-height: 100%;                    /* 100vh=ブラウザーの画面の高さ */
+
+  /* 画面が固定幅（1170px）になるのを防ぐ */
+  width:100%;
+  height:100%;
+
+  /* 中央にコンテナーを配置するための設定 */
+  margin: auto;
+  border: 0;
+
+  padding-bottom: 72px; /* フッター部（var(--footer-height)）の高さを引く */
+}
+/* テキストの書式の初期化 */
+a {
+  text-decoration: none;
+}
+/*
+  ヘッダー部の設定
+*/
+header {
+  width: 100%;
+  height: var(--pc-header-line-height);
+
+  background-color: rgba(90, 111, 116, 0.9);
+  background-size: cover;
+
+  /* ヘッダー部を固定する */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* スクロールしてもヘッダーが隠れないようにZ軸を設定する */
+  z-index: 10;
+}
+/*  */
+header .header-line {
+  height: var(--pc-header-line-height);
+}
+/* ハンバーガーメニューアイコンの設定 */
+.header-line .menu-icon {
+  color: white;
+  float: right;
+  font-size: 25px;
+  /* ハンバーガーメニューがヘッダーラインの縦方向に中央配置になるように設定する */
+  line-height: var(--mobile-header-line-height);
+  /* デフォルトでは非表示 */
+  display: none;
+}
+/* 標準メニューの設定 */
+.header-right {
+  float: right;
+  display:inline-block;
+  background-color: rgb(90,111,116,0);
+  margin-right: 0;
+}
+/* 標準メニューの設定 */
+.header-right a {
+  line-height: var(--pc-header-line-height);
+  padding: 0 25px;
+  color:silver;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+}
+/* 標準メニューにカーソルが乗った時に不透明にする */
+.header-right a:hover {
+  background-color: rgba(90, 111, 116, 1.0)
+}
+/* トップ部の各種設定する */
+.top-wrapper {
+  padding:50px 0px;
+  /* テキストカラーを赤に設定する */
+  color:red;
+  /* テキストを中央寄りに設定する */
+  text-align:center;
+}
+/*  */
+.twitter { 
+  padding:8px 24px;
+}
+/* Twitterのフォローボタンの基本設定 */
+.btn {
+  /* 文字をBOXの内部に展開する */
+  display:inline-block;
+  /*  */
+  padding: 0.5em 1em;
+  /*  */
+  text-decoration: none;
+  /* 背景色は黄緑 */
+  background-color: var(--twitter-background-color);
+  box-shadow: 0 var(--twitter-box-shadow) var(--twitter-box-shadow-color);
+  /* 文字色は白 */
+  color:var(--twitter-strings-color);
+  opacity:var(--twitter-opacity);
+  /* 角を半径4pxに丸める */
+  border-radius: var(--twitter-border-radius);
+}
+/* マウスカーソルがボタンの上に来た時に不透明に設定する */
+.btn:hover {
+    opacity:1;
+}
+/* ボタンを押したときボタンが沈み込んで見えるギミック */
+.btn:active {
+  position: relative;
+  top: var(--twitter-box-shadow);
+  box-shadow: none;/* 影を消す */
+}
+/* 玉子一覧 */
+.egg-wrapper {
+  padding: bottom 3em;
+  padding-left:5%;
+  padding-right:5%;
+  text-align: center;
+}
+/* 玉子の見出し */
+.egg-heading {
+  font-size: 36px;
+  padding: 0.5em;
+  padding-bottom: 0.5em;
+  color:silver;
+  /* 玉子の下線部 */
+  border-bottom: 2px solid silver;
+}
+/* 各玉子のブロック構成の値 */
+.egg {
+  float: left;
+  width: 25%;
+}
+/* 各玉子の見出し */
+.egg h2 {
+  font: size 24px;  /* 24px */
+  color:white;
+}
+/* 各玉子のブロック構成の値 */
+.egg-icon {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+/* 各玉子の画像サイズを設定 */
+.egg-icon img {
+  width: var(--egg-icon-width);
+  height: var(--egg-icon-height);
+}
+
+.fab {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+/* twitter のフォローボタンのテキスト */
+.fa-twitter {
+  font-size: 16px; /* 16px */
+  color: var(--twitter-strings-color);
+}
+/*
+  フッター部の設定
+*/
+footer {
+  background-color: rgba(0, 255, 255, 0.5);     /* フッター部の背景色 */
+  width:100%;                   /* フッター部の横幅 */
+  position: fixed;           /* フッター部をブラウザー下部に固定する */
+  bottom: 0;                     /*  */
+}
+/* フッターのコピーライト表記部の高さを設定する */
+footer .copyright {
+  height: var(--copyright-height); /*  */
+}
+/* コピーライト表記の行間設定 */
+footer .copyright p {
+  font: size var(--copyright-height);
+  color: gray;
+  /* コピーライト表記の行間（line-height）を同じ高さに設定することで、縦方向にセンタリングする。 */
+  line-height: var(--copyright-height);
+  margin: 0 auto 0 1em;
+}
+/*  */
+ .clear {
+  clear: left;
+} 
